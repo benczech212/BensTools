@@ -4,9 +4,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_NeoPixel.h>
-#include <BensTools_ScreenTools.h>
-#include <BensTools_PrintTools.h>
-#include <BensTools_Convert.h>
+
 
 // If using software SPI (the default case):
 #define OLED_MOSI   9
@@ -69,7 +67,7 @@ void setup() {
   stick.setBrightness(LED_2_BRIGHTNESS);
   stick.begin();
   stick.show(); // Initialize all pixels to 'off'
-  randomSeed(analogRead(0));
+  randomSeed(analogRead(1));
 
   //Screen Stuff START //
   display.begin(SSD1306_SWITCHCAPVCC);
@@ -153,10 +151,11 @@ uint16_t G_Pixel_ActualXY[2];
 double   G_Effect_LengthModifier;
 char     G_EffectRunning_Name[16];
 uint16_t G_Effect_Start_Offset;
-uint16_t G_UpdateEveryX;
+uint16_t G_Effect_UpdateEveryXSteps;
 uint16_t G_Effect_Symmetry[4];
 uint16_t G_Effect_SymmetryTest[4] = {1, 1, 1, 1};
 uint16_t G_Effect_TransformType = random(4);
+
 
 uint16_t G_Effect_RunCount = 0;
 uint16_t G_Effect_Step[2];
@@ -167,6 +166,7 @@ uint16_t G_Effect_StartingOffset[2];
 uint32_t      G_Color32_Input,        G_Color32_Output,       G_Color32_Target,     G_Color32_Mask,       G_Color32_NewRandom;
 uint16_t       G_Color8_Input[4],      G_Color8_Output[4],     G_Color8_Target[4],   G_Color8_Mask[4],     G_Color8_NewRandom[4];
 uint16_t       G_ColorChannel_Enabled[4];
+double        G_Color_Mask[4];
 uint32_t      Color32_Test[8];
 uint32_t      G_Color32_Master[32];
 uint32_t      G_Color32_Actual;
@@ -249,14 +249,9 @@ void loop() {
 
 
     
-    G_Effect_Symmetry[0] = 1;
-    G_Effect_Symmetry[1] = 1;
-    G_Effect_Symmetry[2] = 1;
-    G_Effect_Symmetry[3] = 1;
-    
-
-    G_Effect_Step[0] = 0;
-    G_Effect_Step[1] = (G_Index>>4) % 8;
+   
+    G_Effect_Step[0] = (G_Index>>6) % 64;;
+    G_Effect_Step[1] = (G_Index>>4) % 64;
 
     G_Effect_StartingOffset[0] = 0;
     G_Effect_StartingOffset[1] = 0;
@@ -264,8 +259,6 @@ void loop() {
     uint16_t Test_ColorsInSequence = 4;
    Set_Random_Sequence_Colors32(Test_ColorsInSequence );
 
-    
-    
     
     bool Effect_Masterloop = true;
     if (Effect_Masterloop == true) {Effect_MasterLoop();    }
@@ -286,15 +279,18 @@ void loop() {
 //=================================================================================================================================================================//
 
 void Effect_MasterLoop(){
-  
-  Effect_colorWipeX(        G_Color32_Master,  G_Effect_Step,     G_Effect_StartingOffset,       0.875   );
+  //Update_Step_Start();
+  /////////////////////////
+  Update_G_Index();
+  Effect_colorWipeX(        G_Color32_Master,  G_Effect_Step,     G_Effect_StartingOffset,       (0.875 * ((G_Index>>7) % 4)), 0   );
   
   //Effect_DrawShape_FromPixel();
   
   //Effect_StepBG_TO_ColorTarget();
   //Effect_DotTest4(0, 64, G_Effect_TransformType, G_Effect_SymmetryTest);
   strip.show();
-  
+  /////////////////////////
+  //Update_Step_End();
 }
 
 
@@ -308,23 +304,22 @@ void Effect_MasterLoop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void Effect_colorWipeX(uint32_t L_Input_Color32_Sequence[32], uint16_t L_Step[2], uint16_t L_Effect_StartOffset[2], double L_LengthModifier){
+void Effect_colorWipeX(uint32_t L_Input_Color32_Sequence[32], uint16_t L_Step[2], uint16_t L_Effect_StartOffset[2], double L_LengthModifier, uint16_t L_BlendType){
   uint16_t L_Offset_Max = C_Pixel_Total * L_LengthModifier;
   uint16_t L_Offset = G_Index;
   L_Offset = L_Offset % L_Offset_Max;
   Update_Effect_Timer();
-  Update_Effect_Start("ColorWipeX");
   Print_Padded_ValueLabeled("L_Offset", L_Offset, 2, false);
   
   G_Pixel_Actual += Get_Effect_StepForward(L_Offset, L_Step, L_Effect_StartOffset) + L_Step[0];
   G_Pixel_Actual = G_Pixel_Actual % 64;
   uint16_t L_Sequence = (G_Index>>4) % 8;  
     
-  Set_SetPixelColor_From_Input(G_Pixel_Actual, L_Input_Color32_Sequence[L_Sequence], 0);
-  Effect_StepBG_TO_ColorTarget();
+  Set_SetPixelColor_From_Input(G_Pixel_Actual, L_Input_Color32_Sequence[L_Sequence], L_BlendType);
+  //Effect_StepBG_TO_ColorTarget();
   
   if(G_Index % 8 == 0){if(C_Debug_ClearOnStep == true){strip.clear();}}
-  Update_Step_End();
+  
   
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -461,7 +456,7 @@ void Effect_DrawDot1(uint16_t L_Pixel_Actual, uint32_t L_InputColor32, uint16_t 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void Effect_StepBG_TO_ColorTarget (){
-  uint16_t L_ColorModifier[4] = {-1, 1, -1, 1};
+  uint16_t L_ColorModifier[4] = {random(4)-2, random(4)-2, random(4)-2, random(4)-2};
   uint32_t L_Input_Color32_Target = Get_Color32_Modify(Get_Random_Color32_Limit(32, 32, 32, 8), L_ColorModifier);
   uint16_t L_ColorFade_Ammount = 1;
   uint16_t L_LoopCount = 1;
@@ -494,9 +489,9 @@ void Effect_StepBG_TO_ColorTarget (){
       strip.setPixelColor(Get_G_Pixel_Actual_Transform(L_Pixel, (G_Index>>7) % 4, (G_Index>>6) % 4 ) % C_Pixel_Total, L_Color32_Output) ;
       //if(G_Index % 16 == 0){strip.show();}    
     }
-    //strip.show();
+    strip.show();
   }
-  strip.show();
+  //strip.show();
   
 }
 
@@ -551,18 +546,17 @@ void Update_G_Index() {
   //Update If Enabled
   if (C_PrintStats_Master == true)    {    Print_DebugMonitor_MainLoop();   }   //PrintStats if enabled
 
-
-
-
+if((G_Index == 0) | (G_Index % 128 == 0)) {Set_Random_ColorMask_AND_ColorChannels();}
+if((G_Index == 0) | (G_Index % 256 == 0)) {
+    if(random(2) == 1){G_Effect_Symmetry[0] = 1;}     if(random(4) == 1){G_Effect_Symmetry[1] = 1;}     if(random(2) == 1){G_Effect_Symmetry[2] = 1;}     if(random(6) == 1){G_Effect_Symmetry[3] = 1;}
+    if((G_Effect_Symmetry[0] == 0) & (G_Effect_Symmetry[0] == 0) & (G_Effect_Symmetry[0] == 0) & (G_Effect_Symmetry[0] == 0)){G_Effect_Symmetry[random(4)] == 1;}
+}
 
   //Update Every X
   //if(G_Index % 8 == 0){Effect_StepBG_TO_ColorTarget();}
   if(G_Index % 256 == 0){Set_Random_Sequence_Colors32(12);}
   if(G_Index % 512 == 0){
-    
-      uint8_t Temp[4] ;
-      Temp[4] = Get_Random_ColorChannel_Enabled(3);
-      Set_G_ColorChannels_Enabled(Temp);
+
   }
 
 }
@@ -611,9 +605,19 @@ void Update_Effect_End(){
  Print_Padded_ValueLabeled("Run Count", G_Effect_RunCount, 2, false);
   Serial.println("EndEffect");
 }
+
+void Update_Step_Start(){
+  Update_Effect_Timer();
+}
 void Update_Step_End(){
-  Update_G_Index();
-  delayMicroseconds(Get_DelayRemaining());
+  if(G_Index % G_Effect_UpdateEveryXSteps == 0){strip.show();}
+
+  Check_Step_End:
+
+    if(Get_DelayRemaining() != 0){
+      delayMicroseconds(10);
+      goto Check_Step_End;
+      }
   Serial.println("EndStep");
 }
 
@@ -626,8 +630,6 @@ void Update_Step_End(){
 
 
 
-
-
 // | //=================================================================================================================================// | //
 // | // \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ = / \ // | // 
 // | // [] START _Set []                                                            // | // 
@@ -636,18 +638,21 @@ void Update_Step_End(){
 
 
 
-void Set_G_ColorChannels_Enabled(uint8_t L_ColorChannel_Input[4]){
+
+void Set_Random_ColorMask_AND_ColorChannels(){
   for(int n = 0; n < 4; n++){
-    G_ColorChannel_Enabled[n] = LimitValue(L_ColorChannel_Input[n], 0, 1, 2);
+    G_ColorChannel_Enabled[n] = random(3);
+    G_Color_Mask[n] = (random(100)/100) * G_ColorChannel_Enabled[n] ;
+    G_Color_Resolution[
   }
-  Print_Padded_RGBW8("Channel", G_ColorChannel_Enabled[0], G_ColorChannel_Enabled[1], G_ColorChannel_Enabled[2], G_ColorChannel_Enabled[3]);
+ 
 }
 
 
 void Set_SetPixelColor_Of_G_Pixel_Actual(bool ShowUpdate) {
   strip.setPixelColor(G_Pixel_Actual, G_Color32_Actual);
   if (ShowUpdate == true) {
-    if (G_Pixel_Offset % G_UpdateEveryX == 0) {
+    if (G_Pixel_Offset % G_Effect_UpdateEveryXSteps == 0) {
       strip.show();
     }
   }
@@ -657,6 +662,12 @@ void Set_SetPixelColor_From_Input(uint16_t L_Pixel_Input, uint32_t L_Color32_Inp
   uint16_t L_Pixel = 0;
   uint32_t L_Color32_Output = 0;
   
+  
+
+  
+  L_Color32_Input =  Get_Masked_Color32_FROM_Color32(L_Color32_Input);
+
+
   //Blend Type 0 = Replace;
   
   for(int n = 0; n < 4; n++){
@@ -754,7 +765,22 @@ void    Set_Random_Sequence_Colors32_Growing(uint16_t L_ColorsCount) {
 // | // ? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿? ¿?// | //
 // | //=============================================================================================================================// | //
 
-
+uint32_t Get_Masked_Color32_FROM_Color32(uint32_t L_Color32_Input){
+  uint8_t L_Color8_Input[4], L_Color8_Output[4];
+    double  L_ColorMask[4] = {
+    0.25,//(((G_Index>>1) % 10) / 10),
+    0.25,//(((G_Index>>2) % 10) / 10),
+    0.25,//(((G_Index>>3) % 10) / 10),
+    0.25//(((G_Index>>4) % 10) / 10)
+    };
+    
+  for(int n = 0; n < 4; n++){
+    L_Color8_Input[n] = Get_uint8_FROM_uint32(L_Color32_Input, n);
+    L_Color8_Output[n] = L_Color8_Input[n] * (L_ColorMask[n] * G_ColorChannel_Enabled[n]);
+  }
+  return strip.Color(L_Color8_Output[0], L_Color8_Output[1], L_Color8_Output[2], L_Color8_Output[3]);
+  
+}
 
 uint8_t Get_Random_4BoolArray(bool L_AllowAllFalse){
     uint8_t L_OutOf = 14;
@@ -1252,7 +1278,8 @@ void Print_DebugMonitor_Serial() {
   Print_Padded_ValueLabeled(            "StepX",    G_Effect_Step[0],              2, true);
   Print_Padded_ValueLabeled(            "StepY",    G_Effect_Step[1],              2, true);
   Print_Padded_ValueLabeled(            "TransformType",    G_Effect_TransformType,              1, false);
-
+  Print_Padded_RGBW8("Mask", G_Color_Mask[0], G_Color_Mask[1], G_Color_Mask[2], G_Color_Mask[3]);
+  Print_Padded_RGBW8("Channel", G_ColorChannel_Enabled[0], G_ColorChannel_Enabled[1], G_ColorChannel_Enabled[2], G_ColorChannel_Enabled[3]);
 }
 
 
