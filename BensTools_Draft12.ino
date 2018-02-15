@@ -1,3 +1,9 @@
+//Encoder Stuff
+#include <Encoder.h>
+Encoder knobLeft(8, 9);
+Encoder knobRight(10, 12);
+
+
 //Screen Stuff
 #include <SPI.h>
 #include <Wire.h>
@@ -90,6 +96,11 @@ void setup() {
 //  | ////\\\\////\\\\////\\\\////\\\\////\\\\////\\\\
 
 //Constants
+
+long G_UserInput_Knob_PositionLeft  = -999;
+long G_UserInput_Knob_PositionRight = -999;
+
+
 uint16_t C_Pixel_Start = 0;
 uint16_t C_Pixel_Total = 64;
 
@@ -97,8 +108,8 @@ uint16_t C_PixelsPerY = 8;
 uint16_t C_PixelsPerX = 8;
 uint16_t C_PixelsPerDimension[2] = {C_PixelsPerX, C_PixelsPerY};
 
-bool  C_PrintStats_Master = true;
-bool  C_PrintStats_Debug = true;
+bool  C_PrintStats_Master = false;
+bool  C_PrintStats_Debug = false;
 //bool  C_PrintStats_Screen = true;
 bool  C_DebugMonitor_Serial_Enabled = true;
 bool  C_DebugMonitor_Screen_Enabled = false;
@@ -294,7 +305,30 @@ void Effect_MasterLoop(){
 }
 
 
+//User Input
 
+ void Update_UserInput_Knobs(){
+    long newLeft, newRight;
+    newLeft = knobLeft.read();
+    newRight = knobRight.read();
+    if (newLeft != G_UserInput_Knob_PositionLeft || newRight != G_UserInput_Knob_PositionRight) {
+      Serial.print("Left = ");
+      Serial.print(newLeft);
+      Serial.print(", Right = ");
+      Serial.print(newRight);
+      Serial.println();
+      G_UserInput_Knob_PositionLeft = newLeft;
+      G_UserInput_Knob_PositionRight = newRight;
+    }
+    // if a character is sent from the serial monitor,
+    // reset both back to zero.
+    if (Serial.available()) {
+      Serial.read();
+      Serial.println("Reset both knobs to zero");
+      knobLeft.write(0);
+      knobRight.write(0);
+  }
+}
 
 
 
@@ -309,7 +343,7 @@ void Effect_colorWipeX(uint32_t L_Input_Color32_Sequence[32], uint16_t L_Step[2]
   uint16_t L_Offset = G_Index;
   L_Offset = L_Offset % L_Offset_Max;
   Update_Effect_Timer();
-  Print_Padded_ValueLabeled("L_Offset", L_Offset, 2, false);
+  //Print_Padded_ValueLabeled("L_Offset", L_Offset, 2, false);
   
   G_Pixel_Actual += Get_Effect_StepForward(L_Offset, L_Step, L_Effect_StartOffset) + L_Step[0];
   G_Pixel_Actual = G_Pixel_Actual % 64;
@@ -537,7 +571,7 @@ void Update_G_Index() {
   
   if (     G_Index > C_Index_Max )    {    G_Index = C_Index_Min;           }   //Check if above max
   else                                {    G_Index++;                       }   //Increment normally
-
+  Update_UserInput_Knobs();
 
   //Update Every Time
   G_Effect_TransformType = map(G_Index, C_Index_Min, C_Index_Max, 0, 8);
@@ -616,6 +650,7 @@ void Update_Step_End(){
 
     if(Get_DelayRemaining() != 0){
       delayMicroseconds(10);
+      
       goto Check_Step_End;
       }
   Serial.println("EndStep");
