@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-01-10T23:18:14.811Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="pW3Y_WL4roLM_rRb0gvO" version="20.8.3" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-11T00:11:59.135Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36" etag="TlBrT8xaDrfzXeRI_-0O" version="20.8.3" type="github">
   <diagram name="Page-1" id="aaaa8250-4180-3840-79b5-4cada1eebb92">
     <mxGraphModel dx="2037" dy="775" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -35,46 +35,43 @@
           <mxGeometry y="560" width="70" height="230" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-25" value="Laptop Dock" style="rounded=1;whiteSpace=wrap;html=1;fontSize=8;" vertex="1" parent="1">
-          <mxGeometry x="750" y="190" width="280" height="60" as="geometry" />
+          <mxGeometry x="680" y="190" width="230" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-26" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;PC&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=8;" vertex="1" parent="1">
-          <mxGeometry x="1090" y="190" width="340" height="60" as="geometry" />
+          <mxGeometry x="1135" y="190" width="290" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-27" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;Amplifier&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=8;" vertex="1" parent="1">
-          <mxGeometry x="960" y="790" width="380" height="60" as="geometry" />
+          <mxGeometry x="1360" y="720" width="280" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-29" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="765" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="695" y="250" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-30" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Display 1&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="815" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="745" y="250" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-31" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Display 2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="865" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="795" y="250" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-32" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="915" y="250" width="50" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="eS_it3pJZglsGoJVMpvr-34" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Ethernet&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="965" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="845" y="250" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-35" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1110" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="1155" y="250" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-36" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Display 1&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1160" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="1205" y="250" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-37" value="DVI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1210" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="1255" y="250" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-38" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;DVI 2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1260" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="1305" y="250" width="50" height="20" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-39" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1310" y="250" width="50" height="20" as="geometry" />
+          <mxGeometry x="1355" y="250" width="50" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="eS_it3pJZglsGoJVMpvr-40" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Ethernet&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1360" y="250" width="50" height="20" as="geometry" />
+        <mxCell id="eS_it3pJZglsGoJVMpvr-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=9;" edge="1" parent="1" source="eS_it3pJZglsGoJVMpvr-42" target="eS_it3pJZglsGoJVMpvr-47">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-42" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1550" y="250" width="50" height="20" as="geometry" />
@@ -83,19 +80,115 @@
           <mxGeometry x="1460" y="190" width="230" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-44" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="980" y="850" width="50" height="20" as="geometry" />
+          <mxGeometry x="1375" y="700" width="50" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="eS_it3pJZglsGoJVMpvr-45" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1030" y="850" width="50" height="20" as="geometry" />
+        <mxCell id="eS_it3pJZglsGoJVMpvr-45" value="HDMI 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1425" y="700" width="50" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="eS_it3pJZglsGoJVMpvr-46" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1080" y="850" width="50" height="20" as="geometry" />
+        <mxCell id="eS_it3pJZglsGoJVMpvr-46" value="HDMI 3" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1475" y="700" width="50" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="eS_it3pJZglsGoJVMpvr-47" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1130" y="850" width="50" height="20" as="geometry" />
+        <mxCell id="eS_it3pJZglsGoJVMpvr-47" value="HDMI 4" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1525" y="700" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=9;" edge="1" parent="1" source="eS_it3pJZglsGoJVMpvr-48" target="eS_it3pJZglsGoJVMpvr-52">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1600" y="650" />
+              <mxPoint x="1680" y="650" />
+              <mxPoint x="1680" y="890" />
+              <mxPoint x="1600" y="890" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="eS_it3pJZglsGoJVMpvr-48" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;HDMI OUT&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1180" y="850" width="50" height="20" as="geometry" />
+          <mxGeometry x="1575" y="700" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-49" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;HDMI Splitter&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=8;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="790" width="280" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-50" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1365" y="850" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="eS_it3pJZglsGoJVMpvr-76" target="eS_it3pJZglsGoJVMpvr-55">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="920" as="targetPoint" />
+            <mxPoint x="1550" y="880" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="1550" y="870" />
+              <mxPoint x="1550" y="960" />
+              <mxPoint x="35" y="960" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-51" value="HDMI 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1415" y="850" width="55" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-52" value="HDMI In" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1575" y="850" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-55" value="HDMI 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="790" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-57" value="USB Switch" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="930" y="190" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=9;" edge="1" parent="1" source="eS_it3pJZglsGoJVMpvr-58" target="eS_it3pJZglsGoJVMpvr-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-58" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB 1&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="250" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=9;" edge="1" parent="1" source="eS_it3pJZglsGoJVMpvr-59" target="eS_it3pJZglsGoJVMpvr-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-59" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB 2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="250" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-60" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB In&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="250" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-61" value="USB Periferal Hub" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="930" y="390" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-62" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB 1&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="450" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-63" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB 2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="450" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=9;" edge="1" parent="1" source="eS_it3pJZglsGoJVMpvr-64" target="eS_it3pJZglsGoJVMpvr-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-64" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Usb Out&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="370" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-65" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB 3&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="450" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-70" value="USB Periferal Hub" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1285" y="390" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-71" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB 1&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1305" y="450" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-72" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB 2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1355" y="450" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-73" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Usb Out&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1355" y="370" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-74" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;USB 3&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1405" y="450" width="50" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-75" value="HDMI 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1470" y="850" width="55" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-76" value="HDMI 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="850" width="55" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="eS_it3pJZglsGoJVMpvr-77" value="Capture Card" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="790" width="190" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
